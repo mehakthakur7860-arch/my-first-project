@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo">LIBRARY MANAGEMENT SYSTEM</div>
+        <ul class="nav-links">
+            <li class="nav-item active" onclick="showPage(this, 'dash')">Dashboard</li>
+            <li class="nav-item" onclick="showPage(this, 'books')">Book Records</li>
+            <li class="nav-item" onclick="showPage(this, 'students')">Student Records</li>
+            <li class="nav-item" onclick="showPage(this, 'issue')">Issue/Return</li>
+            <li class="nav-item" onclick="showPage(this, 'attendance')">Attendance</li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <div id="dash" class="page active">
+            <h1>Library Dashboard</h1>
+            <div class="stats">
+                <div class="stat-box"><h4>Books</h4><h2 id="count-books">0</h2></div>
+                <div class="stat-box"><h4>Students</h4><h2 id="count-students">0</h2></div>
+                <div class="stat-box"><h4>Issued</h4><h2 id="count-issued">0</h2></div>
+                <div class="stat-box"><h4>Total Fine</h4><h2 id="count-fine">₹0</h2></div>
+            </div>
+            <div class="glass-card">
+                <h3>Quick Search</h3>
+                <input type="text" id="globalSearch" placeholder="Search books or students..." onkeyup="handleSearch()">
+                <div id="searchRes"></div>
+            </div>
+        </div>
+
+        <div id="books" class="page">
+            <div class="glass-card">
+                <h2>Manage Books</h2>
+                <form id="bookForm" class="form-grid">
+                    <input type="text" id="bt" placeholder="Book Title" required>
+                    <input type="text" id="ba" placeholder="Author Name" required>
+                    <input type="text" id="bc" placeholder="Category" required>
+                    <button type="submit" class="btn btn-add">Add Book</button>
+                </form>
+                <table id="bookTable">
+                    <thead><tr><th>Title</th><th>Author</th><th>Status</th><th>Action</th></tr></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="students" class="page">
+            <div class="glass-card">
+                <h2>Student Management</h2>
+                <form id="studentForm" class="form-grid">
+                    <input type="text" id="sn" placeholder="Student Name" required>
+                    <input type="text" id="sr" placeholder="Roll Number" required>
+                    <button type="submit" class="btn btn-add">Register</button>
+                </form>
+                <table id="studentTable">
+                    <thead><tr><th>Roll No</th><th>Name</th><th>Action</th></tr></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="issue" class="page">
+            <div class="glass-card">
+                <h2>Issue & Return Section</h2>
+                <table id="issueTable">
+                    <thead><tr><th>Book</th><th>Student</th><th>Due Date</th><th>Fine</th><th>Action</th></tr></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="attendance" class="page">
+            <div class="glass-card">
+                <h2>Daily Attendance</h2>
+                <button class="btn btn-success" onclick="markAllAttendance()">Mark Today's Attendance</button>
+                <table id="attendanceTable">
+                    <thead><tr><th>Date</th><th>Roll No</th><th>Name</th><th>Status</th></tr></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
