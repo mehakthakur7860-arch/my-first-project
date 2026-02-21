@@ -1,2 +1,2 @@
-# my-first-project
+# Welcome to My Project
 first GitHub project
